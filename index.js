@@ -1,5 +1,8 @@
-import app from "./app";
+const app = require("./app");
 
-app.listen(1234, () => {
-    console.log("Started express server at port 1234");
-})
+PORT = 4000;
+
+
+app.listen(PORT, () => {
+    console.log(`Express server started at http://localhost:${PORT}`);
+});

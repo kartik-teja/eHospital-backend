@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Reports</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .highlight {
+            background-color: #f8f9fa;
+        }
+
+        .overlay.active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay" class="overlay"></div>
+    <div class="container">
+        <div class="row py-5 position-relative">
+            <div class="col-6 text-center" id="doctor-login">
+                <div id="doctor-text" class="h-auto">Doctor Login text</div>
+                <form id="doctor-form" class="w-75 p-3 border rounded bg-light mx-auto d-none">
+                    <h4>Doctor Login</h4>
+                    <div class="mb-3">
+                        <label for="doctor-username" class="form-label">Username</label>
+                        <input id="doctor-username" type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="doctor-password" class="form-label">Password</label>
+                        <input id="doctor-password" type="password" class="form-control" placeholder="********">
+                    </div>
+                </form>
+            </div>
+            <div class="col-6 text-center" id="patient-login">
+                <div id="patient-text" class="h-auto">Patient Login text</div>
+                <form id="patient-form" class="w-75 p-3 border rounded bg-light mx-auto d-none">
+                    <h4>Patient Login</h4>
+                    <div class="mb-3">
+                        <label for="patient-username" class="form-label">Username</label>
+                        <input id="patient-username" type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="patient-password" class="form-label">Password</label>
+                        <input id="patient-password" type="password" class="form-control" placeholder="********">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const doctorLogin = document.getElementById('doctor-login');
+            const patientLogin = document.getElementById('patient-login');
+            const doctorText = document.getElementById('doctor-text');
+            const doctorForm = document.getElementById('doctor-form');
+            const patientText = document.getElementById('patient-text');
+            const patientForm = document.getElementById('patient-form');
+            const overlay = document.getElementById('overlay');
+
+            doctorLogin.addEventListener('mouseenter', () => {
+                doctorForm.classList.remove('d-none');
+                doctorText.classList.add('d-none');
+                doctorLogin.classList.add('highlight');
+                overlay.classList.add('active');
+            });
+
+            doctorLogin.addEventListener('mouseleave', () => {
+                doctorForm.classList.add('d-none');
+                doctorText.classList.remove('d-none');
+                doctorLogin.classList.remove('highlight');
+                overlay.classList.remove('active');
+            });
+
+            patientLogin.addEventListener('mouseenter', () => {
+                patientForm.classList.remove('d-none');
+                patientText.classList.add('d-none');
+                patientLogin.classList.add('highlight');
+                overlay.classList.add('active');
+            });
+
+            patientLogin.addEventListener('mouseleave', () => {
+                patientForm.classList.add('d-none');
+                patientText.classList.remove('d-none');
+                patientLogin.classList.remove('highlight');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
