@@ -1,6 +1,6 @@
-const app = require("./app");
+import app from "./app";
 
-PORT = 4000;
+const PORT = 4000;
 
 
 app.listen(PORT, () => {
