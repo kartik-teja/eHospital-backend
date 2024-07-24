@@ -23,7 +23,8 @@
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",
     "sqlite3": "^5.1.7",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "cypress": "^13.13.1"
   },
   "dependencies": {
     "ejs": "^3.1.9",
